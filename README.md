@@ -15,7 +15,7 @@ Two main steps in my algorithm:
   Second step, considering the input via command line, find all possible substrings, then looking for words against keys in dictionary collection.
   
 Generating dictionary:
-The dictionay is constructing from an online text file, which is stored in my Dropbox shared folder. The text file is considered as including all english words, one per line.
+The dictionay is constructing from an online text file (https://dl.dropboxusercontent.com/u/129841492/dict.txt). The text file is considered as including all english words, one per line.
 All words that shared the same key, will be assciated with that key in hashmap collection. 
 Key is generated based on characters in a given word. For example, both "dog" and "god" associate with key "dgo".
 
