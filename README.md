@@ -22,3 +22,8 @@ Key is generated based on characters in a given word. For example, both "dog" an
 Looking for result words:
 Firstly, find all possible substrings from user's input via command line.
 Then, check each substring against key in dictionary hashmap collection. Combine all proper results and print out.
+
+About the english words list
+The original word list resource: http://www-01.sil.org/linguistics/wordlists/english/. 
+
+
