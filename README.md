@@ -6,14 +6,15 @@ A word jumble solution
 Programming language: Java
 
 Puzzle description:
-
 The program should accept a string as input, and then return a list of words that can be created using the submitted letters.  
 For example, on the input "dog", the program should return a set of words including "god", "do", and "go".
 
 Solution:
 
 Two main steps in my algorithm:
+  
   First step, generating a dictionary collection in memory.
+  
   Second step, considering the input via command line, find all possible substrings, then looking for words against keys in dictionary collection.
   
 Generating dictionary:
