@@ -1,9 +1,11 @@
-LikeTwice Puzzle
+Twice Puzzle
 ===============
 
 A word jumble solution
 
-Programming language: Java
+Programming language
+------------
+Java
 
 Puzzle description
 ------------
