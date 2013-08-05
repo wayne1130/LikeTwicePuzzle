@@ -1,4 +1,4 @@
-import java.io.BufferedReader; 
+import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 /**
  * Created with IntelliJ IDEA.
- * User: yongwen 
+ * User: yongwen
  * Date: 8/5/13
  * Time: 12:45 AM
  * To change this template use File | Settings | File Templates.
@@ -58,42 +58,42 @@ public class Solution {
             System.out.println("Please input a word:");
             System.out.println();
 
-            HashMap<String, String> tempKeys = new HashMap<String, String>(),
-                                    res = new HashMap<String, String>();
+            HashMap<String, String> tempKeys, res = new HashMap<String, String>();
 
             while ((input = bufferedReader.readLine()) != null) {
 
                 input = input.toLowerCase();
-                input = generateKeyHelper(input);
 
-                for (int i = 0; i < input.length(); i++) {
+                if(input.length() > 0){
 
-                    for (int j = 1; j <= input.length() - i; j++) {
-                        String tempKey = input.substring(i, i+j);
-                        if (!tempKeys.containsKey(tempKey)) {
-                            tempKeys.put(tempKey, tempKey);
+                    tempKeys = allSubStringsHelper(input);
+
+                    for (String str : tempKeys.keySet()) {
+                        if (dictionary.containsKey(str)) {
+                            for (String s : dictionary.get(str)) {
+                                res.put(s, s);
+                            }
                         }
                     }
 
-                }
-
-                for (String str : tempKeys.keySet()) {
-                    if (dictionary.containsKey(str)) {
-                        for (String s : dictionary.get(input)) {
-                            res.put(s, s);
+                    if (res.size() == 0) {
+                        System.out.println("No proper results can be found in the dictionary.");
+                        System.exit(1);
+                    } else {
+                        System.out.print("Result sets are : ");
+                        for (String str : res.keySet()) {
+                            if(!str.equals(input)){
+                                System.out.print(str + " ");
+                            }
                         }
-                    }
-                }
-
-                if (res.size() == 0) {
-                    System.out.println("No proper results can be found in the dictionary.");
-
-                } else {
-                    System.out.print("Result sets are : ");
-                    for (String str : res.keySet()) {
-                        System.out.print(str + " ");
+                        System.exit(1);
                     }
 
+                }else {
+                    System.out.println("Input cannot be null");
+                    System.out.println();
+                    System.out.println("Please input a word:");
+                    System.out.println();
                 }
 
             }
@@ -119,6 +119,29 @@ public class Solution {
         char[] strArray = str.toCharArray();
         Arrays.sort(strArray);
         return new String(strArray);
+    }
+
+    //find all SubStrings of a given string
+    public static HashMap<String, String> allSubStringsHelper(String str){
+        HashMap<String, String> res = new HashMap<String, String>();
+
+        if(str.length() > 1){
+
+            for(int i = 0; i < str.length(); i++){
+
+                for(int j = 1; j <= str.length() - i; j++){
+                    String temp = str.substring(i, i+j);
+                    temp = generateKeyHelper(temp);
+                    res.put(temp, temp);
+                }
+
+            }
+
+        }else {
+            res.put(str, str);
+        }
+
+        return res;
     }
 
 }
