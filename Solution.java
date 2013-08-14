@@ -15,7 +15,6 @@ import java.util.HashMap;
 public class Solution {
 
     public static void main(String[] args) throws Exception {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
 
         URL url = new URL("https://dl.dropboxusercontent.com/u/129841492/dict.txt");
         InputStreamReader inputStreamReader = null;
